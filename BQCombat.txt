@@ -1,5 +1,5 @@
 Here's some new stuff to include into the txt file. I'm not looking at the screen right now I wonder how bad this is?
-
+Editing from the browser...........
 ]======[
 ]Combat[
 ]------[
@@ -9,7 +9,7 @@ Ship Types
 - Sloop-of-War (3 Mast)
 - Frigate
 - "Adventure Galley" With oars. 160 men
-- French frigate Félicité (1785) 600 men, 32 guns
+- French frigate Fï¿½licitï¿½ (1785) 600 men, 32 guns
 - Brig
 - Ghost Ship
 
