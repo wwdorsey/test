@@ -1,0 +1,142 @@
+]======[
+]Combat[
+]------[
+
+Ship Types
+- Sloop (1 Mast) [Bermuda Sloop]
+- Sloop-of-War (3 Mast)
+- Frigate
+- "Adventure Galley" With oars. 160 men
+- French frigate Félicité (1785) 600 men, 32 guns
+- Brig
+- Ghost Ship
+
+"Systems"
+- Weapons
+- Masts
+- Helm (benefit of manning during combat? evade?)
+- Rutter?
+- "Transporter"? Gang plank
+- Captain's Quarters?
+- Bilge Pump
+
+Combat
+- Hull segments, repairable but takes longer
+- Hull segments lose a max of 5% max HP from 1 fight if taken
+- Breaches? Repairable (Always on bottom deck (duh))
+- Sink meter
+- Movement
+  - Can only move towards or away
+  - Can rotate in place basically
+  - Boarding orientation is a button,
+  ..show up in each other's screen
+- ? Small ships can run so you need to
+... take out their sails or helm
+
+{ FTL has so much differentition. Hmm.}
+
+- Capture of Captain?
+
+Weapons
+- Cannon balls (Hull stuff, Multipliers)
+... Possibly unlimited (probably)
+... Cannon ball chain shot at mast
+- Grape shot
+- Fire bomb?
+- Sail Shot
+- 1-5, Q-T
+
+Combat needs to be a bit different - more complex in areas
+Boarding could have higher quality, faster gangplanks
+Wider bridges, more sturdy, higher health, fire retardant
+
+We absolutely need fire bombs of some sort
+
+Water cannon!
+-Story, you use your water cannon to save a burning ship OR
+... you don't save them and salvage what you can
+... Could grant dudes/sea dogs
+... Could also be a trap .. maybe
+
+Perhaps personnel weapons upgrades?
+
+We need a concrete, intellegent way to send people to gangplank
+
+Smaller ships just get missed a lot more?  This player would be
+... more focused on boarding or simply surviving longer fights
+
+
+Witchdoctors? Populous lol
+Warrior prone ships?
+
+Weaker regions may be more profitable. Less risky from boardings
+An algorithm where when you enter the zone a factor is picked
+Dictates overall booty value
+
++
++
++
+*-Can you hit a bilgepump if it's in the middle of their lower deck?
+- Need a smart way to target enemy systems on lower deck vs hull
+-----
+AI
+-----
+Is there another ship? (May never need to be asked)
+- No. Terminal to this ship's existence. Close object immediately.
+... Unless we need to keep the ship there for returns if not killed
+- Yes. Move to next case.
+
+Will I be hostile to this ship?
+- No. Present friendly dialogue.  Continue to next case.
+- Yes. Continue to "@".
+
+If they are approaching, a possible distance could be viewed
+... as hostile. If threshold met:
+- Fire warning shot.
+- Proceed to @.
+
+If I recieve damage, I'm being attacked.
+If triggered:
+- Flee.
+- Proceed to @.
+
+@ How will I proceed with my aggression? (Depends on kit)
+- Attempt to board [B]
+- Position ship to fire. [R]
+
+>Trigger<
+If a system has taken damage, send a Carpenter depending
+on importance of said system.
+- If we are set for boarding, Gangplank = #1
+- If we are trying to position ourselves or flee, helm > masts 
+- If we are already in firing position, weapons = #1
+... Weapons may need innate values set (Cannons > Grapeshot > Water)
+- If on fire, water cannon = #1
+- If a breach, always #1, fix bilge if needed*
+
+[B] Begin closing distance, assembling crew at Gangplank
+- Who? Never captain. Prolly just need to have this set.
+- As soon as in range, latch gangplank, start sending dudes
+
+[R] Are they running?
+- Yes, shoot helm or masts (random), or chase if needed
+- No. Next Case.
+
+Are they approaching / not in firing position?
+- Yes, shoot masts, helm if in range. Target gangplank at X distance
+- No. Proceed based on kit.
+... If fire heavy, shoot fire at sails.
+... If cannon heavy:
+... Frigates, aim at their weapons > hull segments
+... Others, hull segments
+
+>Trigger<
+If a gangplank has been latched
+- Send crew to gangplank
+- If X crew killed / Y ratio (of friendly to enemy crew)
+... met, send captain
+- If X1 crew killed / Y1 ratio met, surrender OR (random)
+... fight to death
+- If they flee
+... If last status of combat object was Y2 ratio, pursue
+... If Y3 ratio, return to battle stations
