@@ -1,0 +1,239 @@
+Booty Quest
+-----------
+= Visual Workings of Boarding =
+The actual combat of boarding is not in question here, just
+ making it work visually.
+-----------
+* - A number that could be changed and isn't really consequential
+
+==================================
+Option #1 - Predesigned Animations
+==================================
+
+- Animations are already created for combat and pulled just like
+ song files, animations of other objects
+
+- Animations are done in increments of 5* units, and the animation
+ used changes as the number of units in the combat object goes down
+
+- The location of this animation is in relation to the gangplank
+
+- The characters in the animation in no way represent the
+ appearance of members of your crew
+
+Questions/Concerns
+- While out of boarding combat, the game is almost entirely
+ visually indicative of what is going on (ex. If the Captain is at
+ the helm, the Captain appears at the helm.) The only
+ non-indicative thing I think of is seadogs just appear wherever
+ they are rather than walking there.  I worry about bridging the
+ gap from such visual correlation to a segment of gameplay where
+ visual coorelation is more on the back burner.
+
+- What happens when you recall just crew/dogs? How does the
+ animation reflect that or does it at all?
+
+	[-As crew/dogs are removed from combat the animation size changes to reflect the new size if it hits a min/max threshold (same as when crew/dogs die)]
+ 
+- At what point do your crew/dogs change from looking like 
+ themselves to just being an animation? When you board?
+ What if you come back and they follow? What if you are boarded
+ in the first place? Does your crew just change to a
+ visually non-reprensitive animation when the fight starts?
+
+	[-Crew changes as soon as they enter the area the fight occupies. 
+	If you are boarding that means as soon as they cross the gangplank.
+	If you are being boarded, crew on the main deck automatically move towards the fighting area and "enter" it once they reach the edge of the area.]
+ 
+- How does the engagement animation play out? (Like the part where
+ guys are still getting in position to fight each other.) This
+ is not totally unique to just this topic so consider the answer
+ for use on other options.
+ 
+	[-We can break the the fight into 4 separate animation.
+		1)Begining: Each side has a starting position (probably on opposite sides of the fighting area) and then walk towards each other.
+		2)Fighting: Plays at the end of the Beginning animation. The kerfuffle gets into full swing with both sides throwing punches and shooting guns and swinging swords.
+		3a)Death: Enough crew/dogs die off to reach the minimum threshold of the current animation.
+				  Animated people that will be outside of the new fighting area "die".
+				  The (2) animation for the new size beings.
+		3b)Retreat: Enough crew/dogs are retreated to reach the minimum threshold of the current animation
+					Animated people that will be outside of the new fighting area run away to either the gangplank or deck stairs depending on which ship they belong to.
+					The (2) animation for the new size beings.]
+
+- Some players do not care about their crew. "In FTL, my mantis
+ is just a mantis." But for some people, attaching sentiment
+ to crew is important. It gives the journey with that ship more
+ character. Having the only visual indication of a crewmate
+ become only the nameplate for them (and think of how often this
+ would happen for a Carribean style ship) I believe would be
+ unappealing to all players that do attach sentiment.
+ 
+	[-Possible Explanations:
+		-Those people are faggots
+		-It's a confusing melee so it makes sense to lose track of some of your dudes.
+	This is probably the biggest issue with this way of doing boarding.
+	The way things stand, the only real way to deal with it is to ignore it or rework boarding completely. ]
+
+Suggestions/Ideas
+- The issue with bridging the gap and getting into position could
+ be solved by making boarding combat more event-like. The player
+ is given the impression that this is more of a mini-game. This
+ removes the need for trying to properly animate the positioning
+ of the fighters - they just would already be laid out correctly.
+ They would not be thrown off by the stark contrast to the rest of
+ the game as far as visual correlation goes because this is clearly
+ an "event" and yada yada. I don't like this idea, I wanted all of
+ combat to be a single, fluid engagement; but there it is.
+
+- I had suggested something about loading the models of your crew
+ into the animation so that people get to see their crew do stuff.
+ As I recall, it sounded like the technical aspect of this would
+ make the other options for this problem more worthwhile as a good
+ bit of it would already be taken care of.
+
+	[-With the way boarding works at the moment, there is a disconnect between a crew/dog's information and his animation.
+	This makes loading a specifc model in place of a generic one hella sketcky at best and most likely impossible.]
+ 
+Pros
+- Never have to worry about too many units filling the ship or
+ anything like that
+
+- Less computationally intensive
+
+	[-Also the "cleanest" way to code it. More effecient and easier to maintain and update.]
+
+==================================
+Option #2 - Chess Board
+==================================
+
+	[-I'm assuming this will all still be automated?]
+
+- Named this way because I believe a large portion of the logic
+ and code could be taken from a chess game and it matches various
+ elements of this option.
+
+- When the gangplank latches, the appropriate number of seadogs
+ and the appropriate crewmates are inserted into the chess board
+
+- The first (and 2nd?) node is on the gangplank itself. This node
+ has an animation attached to it (Go to the first node on their
+ ship)
+ 
+	[-Contradiction with the previous point.
+	If crew/dogs are already inserted into the chess board, to me that means they are one the enemy ship.
+	Also I think the gangplank should not be apart of the board and fighting on the gangplank should be avoided.
+	(To clarify: the gangplank "area" on a ship is fair game, but the gangplank itself should be off limits)]
+
+- The nodes on their ship are in a chess board fashion.
+ Each node tracks: 
+ Occupied status (is/isn't occupied)
+ Occupied status and friend/foe of 8 neighbor nodes
+ End nodes know that there is no path in the appropriate directions
+
+- Movement animations are pre-done. So units can either move
+ L, R, U, D, UL, UR, DL, DR. They won't move where they can't
+ because a node knows that it does or doesn't have an available
+ neighbor to move to. 
+
+- We are able to know what nodes are occupied throughout the
+ board. Units fill in as needed.
+
+- Given that filling in has been appropriately managed (addressed
+ later), an occupied node detects what neighbors are hostile. The
+ occupant faces that way and runs the attack animation. If the
+ node this node is fixated on becomes unoccupied, it runs the
+ check again. Attack appropriate node if possible, or move to
+ a node where it can attack. Units can face at a 45 degree angle
+ so as to attack diagonally.
+
+- Crewmates keep track of the node they are in so that they appear
+ there correctly. Seadogs wouldn't need this. We just need to know
+ that a particular node is occupied by a seadog. But it may be 
+ possible to do this for seadogs too since there is now a data
+ structure in place to track them. All a node needs to know is
+ that it is or isn't occupied and what faction they are on.
+
++ Continuation post-1st draft
+ Another way to implement crewmate tracking:
+ At most you need 21 unique names to occupy nodes. Captain is "1",
+ next crewmate is "2", seadogs are all "21". Illustrate the
+ cooresponding unit in that node. 
+
+	[-what if you don't have a full complement of crew or choose not to send all crew over?]
+ 
+- To prevent stupid looking collision, units cannot visually move
+ through an occupied node. If they need to move between 2 occupied
+ nodes, units are animated moving at .5 or -.5 of the node they are
+ passing through. This should result in units at worst brushing
+ shoulders. This could result in short periods where attackers
+ appear to be attacking nothing, but they will quickly re-run the
+ occupied neighbor check and respond accordingly.
+ 
+	[-What about moving through multiple occupied nodes at once?]
+
+- In the data structure, we can say that the first in (assuming
+ it is a seadog) is the first to die and so on. FIFO. This provides
+ additional realism since the first units will surely be taking
+ the most damage.
+
+Concerns
+- Filling in. Same as with Option #1, I don't know how we want it
+ to look. If they are in a U shape around the gangplank entrance,
+ it would cause a bottle neck with insufficient outflow. We can
+ have guys move past their U and essentially flank them, but I'm
+ not sure I like this. Perhaps for smaller enemy groups. We could
+ also just have them lined up and allow for fill room. This also
+ provides for a more spread out melee. They could be lined in a
+ fashion similar to a chess board where it's like:
+ X0X0X0
+ 0X0X0X
+ X0X0X0
+
+	[-Neither side should be able to advance unless both sides are completely set up and ready to engage.
+	This will give us control of the way crew/dogs are initially placed on the chess board so that we don't have to worry about gross concaves forming at the beginning of a fight.]
+	
+	More Concerns
+	
+	[-We can give crew/dogs outlines on how to move across the chess board, but at the end of the day we can't control where they end up.
+	If crew/dogs can't move through occupied spaces blockages will occur, especially if we don't make the fighting area large enough. 
+	(crew/dogs will get stuck behind friendly crew/dogs and will end up just sitting there)]
+	
+	[-What about retreating a crewmate from the object? Do they have to move to the edge of the fighting area? to their initial origin point?]
+ 
+Ideas
+- This idea might could still be used no matter what method we go
+ with. For filling in purposes, a seadog (maybe crewmate too) - in
+ this case lets say the 4th seadog in the boarding queue - will
+ be animated walking to a mast, grabbing a rope, and swinging to
+ "D5" on the enemy ship's chess board. Can't believe we didn't
+ think of dudes doing heroic rope swings earlier lol. (See Bluto
+ in Animal House).
+
+==================================
+Option #3 - Brrrnn
+==================================
+
+I had originally thought I knew of 3 options. I think the original
+option 2 was actually the predcessor of the current option 2, but
+will replace this if I think of a unique option.
+
+==================================
+Option #4 - Shogun Total War Stylie
+==================================
+
+- Full blown event. Fuck combat continuation. If there is boarding,
+it starts this event. Dudes just appear on the appropriate ship
+and go at it. Surely there is a way to load in the correct
+crewmate models.
+
+- The battle is either won or lost. Retreating still an option.
+Retreat could result in a response event if one side boards the
+ship of the retreating crew.
+
+- Could remove the HUD and put both ships side by side and have
+full 2 ship melee. Not sure about this. Would probly prefer
+"aggressor vs defender" model.
+
+- I believe you said this was how that game you played did it.
+
+- I'm not fond of this idea. Prefer combat continuation like FTL.
