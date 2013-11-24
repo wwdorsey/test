@@ -1,0 +1,511 @@
+Booty Quest
+"I can dig it"
+--------------
+
+{LEGEND}
+Numeral - Section
+[Nothing] - Subsection
+> - Sub-subsection
+- - Point in (sub-)section
+... - Continuation of previous line
+[] - Comment of some sort
+
+I. Ships
+Ship Types
+Weapons
+Systems
+- Ship Upgrades
+Augmentations
+Combat
+- Ballistics
+- Boarding
+
+II. Characters
+Named Characters
+- Roles
+- Classes
+Seadogs
+
+III. Existence Mechanics
+Currencies
+Morale
+
+IV. Progression Mechanics
+Map
+Reputation
+Events
+- Quests (& Management thereof)
+- Sea monsters, Crystal Cove, Sirens
+- Weather *** NEEDS EXPANSION / DEFINING ***
+End game
+-Town Sacking Boss Fights
+
+VI. Enemies
+- Ship Packages
+- Nations/Peoples
+
+VII. HUD Elements
+
+VIII. Other
+- Achievements
+- General Visual Stuff
+
+IX. Pacifist Mode
+
+========================
+
+I. Ships
+
+Ship Types (Models)
+- Frigate (X for # of kingdoms, 3?)
+- Galley (1)
+- Sloop-of-war (2?)
+- Sloop (2?)
+- Ghost ship (Size?) (1)
+- *Sloop-of-peace* (1)
+[10 Total*]
+[There was talk of a "Good Mode." Since modes are ship specific,
+... need to attribute this to a particular model(s).
+... This mode is just where you can't attack non-pirates
+... and get more money for taking out/capturing pirates]
+
+Weapons
+- Cannon balls (Hull stuff, Multipliers maybe?)
+... Possibly unlimited (probably)
+... Gun sizes: Large, Medium, Small(2)
+- Grape shot
+- Fire bomb
+... To damage seadogs, must set a system on fire
+- Sail Shot
+- Water Cannon - Used for putting out fires
+- 1-5, Q-T - Keybindings to be used
+- Deck guns? Would be used for grape shot and water cannon
+... "Love pumpin' shit into hoes"
+... Can be of all weapon types
+
+Systems - All systems use 3 Seadogs max
+- Weapons
+- Masts - Dictate speed and evade
+- Helm - No seadogs, just Named Chars
+- Bilge Pump - Heals sinkmeter status
+- Gang plank - Boarding
+... [Boarding could have higher quality, faster gangplanks
+... Wider bridges, more sturdy, higher health, fire retardant]
+
+> Ship Upgrades
+- System points
+- Hull strength
+- Seadog Capacity
+- Personnel Weapon Upgrade
+
+Augmentations
+> Good Ones
+- Crow's Nest
+- Firing range (gunpowder)
+- Improved rudder
+- Hull iron plating (lower breach chance [and stronger intergrity?
+... not flat dmg reduction, "resilience"])
+- Fire resistant polymer (fire retardance)
+- Cannon ball racks (automated-reloader-esque)
+- Booty Implants (mo money)
+- Improved Longevity (Improved Carpenter Tools)
+- Cooking? Gourmet Kitchen? "Clean cauldron?" BAM!
+- Fishing augmentation (1/3 - 1/4?)
+
+> Area pacific augmentations
+- Fur coats (increase morale in the north)
+- NECISITO MAS
+
+> Bad or Unsure About
+- Anti-boarding augmentation
+- Increased accuracy
+- Compass Augmentation - helps nav (missing nodes, #s dependent)
+- Some Kinda Shitty Weather Augmentation ***
+- Pre-igniter (name sucks, might not use)
+
+Combat
+> Ballistics
+- Hull segments, repairable but takes longer
+... Green, Yellow, Red, Black
+... If red, systems in that area are worn out
+... If black, also taking on water
+- 10 - 12 on biggest ship
+- Hull segments lose a max of 5% max HP from 1 fight if taken
+- Breaches? Repairable (Always on bottom deck (duh))
+- Sink meter
+- Autofire
+
+> Boarding
+- Right click Seadogs out of stations
+- "Request all" on glangplank (HUD)
+- As soon as gangplank locks, dudes cross a.f.a.p.
+- Actual Combat - Named Char's take damage on ticks
+... Seadogs and named chars are taken into account in an object
+... This object considers the appropriate factors and begins
+... killing seadogs based on these factors (ALMOST randomly)
+... The amount of damage assigned to Named Chars needs to be clear
+- Seadogs not moveable without a Full Retreat
+- Named Chars totally moveable as normal
+- The enemy either surrenders quick or takes you the distance
+- If you retreat, they can follow, faster gang = faster retreat
+- *** Try not to firebomb your own dudes (backs of ships better)
+... We were unsure about firebombing stuff last I recall
+- You can recall crewmates only
+- You click on a crewmate and return him
+- You can recall all
+- If you retreat your seadogs take excess damage
+- If you are boarded and don't want someone in a fight, you may
+... send them below deck.
+... If your top deck has nothing but enemies, you lose
+- If you retreat and still in combat, your dudes will mill
+... about gangplank AREA
+- Seadogs/Crewmates removed from original combat object based on
+... transit timer *Will require testing/calibration*
+- If they want to hit you, they aim at gangplank system, vice versa
+- Once they reach you, a new combat object is created
+- The combat object's size and location is:
+... # of dudes = volume, that area around gangplank
+- So you can aim at that area and it will get hit, take fire damage
+
+
+> Ship Movement
+- Encounter ship
+- Ship distance predetermined
+- Can immdiately change direction, default is toward them
+- Can rotate in place basically
+- As soon as you start turning you can't shoot
+- Can only move towards or away (Slight Y axis player can't see)
+
+- Boarding orientation is a button, show up in each other's screen
+- Small ships can run so you need to take out their sails or helm
+... Presently, gangplanks prevent movement and fleeing
+[Smaller ships just get missed a lot more?  This player would be
+... more focused on boarding or simply surviving longer fights]
+- Delay on gangplank so that they can't just molest
+
+- May disengage at X distance - button pops up
+- Leaving limits as far as running and next node selection
+... That is, if you flee in the opposite direction, you can't
+... jump to nodes that are in the other direction.
+... Can still jump back if you want
+======
+======
+======
+
+
+II. Characters
+
+Named Characters - These are normal, full-fledged, selectable
+... characters.  They can start with no skill or some skill
+... already leveled up.  They can be sent to any role to perform
+... and level said role (aside from Doctor and Captain).
+
+> Roles
+- Captain - Somewhat of a token toon?
+... Starts with level 1 Navigation & Melee
+... If this toon dies, the game is over
+... Upon a successful (yet tbd) run, may be able to continue?
+- Navigator/Helmsman - Fewer Navs means chance of missing next jump
+... Navs increase evade
+... 3 Max per Helm area
+- Weaponer - Stands in area with gun, does not work on it
+... Higher quality increases gun speed and hit chance
+- Cook - Big ole fat tub of lard
+... To gain XP must stay at cooking station from start to end of
+... a node visit.
+... Better cook = better morale
+... Multiple cooks?
+- Carpenter - Repairs the ship systems and hull
+... Higher quality = Faster repair
+... Levels via work
+- Doctor - Heals your crew
+... Can not be trained up from a normal named char
+... Must be bought at a port
+... Levels by healing
+... Higher level = faster heal
+- Witchdocor?
+... When not healing, emits an AOE "chant" that pacifies boarders
+... This chant is disrupted upon taking damage
+... All other aspects the same as a reg doctor
+
+> Classes - There is talk of having Named Character Classes, but
+... This needs fleshing out. So far:
+- Some kind of strong melee class (Carribean)
+- Perhaps stronger weapon specialization class
+
+Seadogs
+- Function as power
+- Able to board enemy vessel
+- Able to defend your vessel via melee combat (need callup button)
+- Not directly targetable
+- Intended to be rather expendable
+- Replenish Seadogs at port or through seizure
+
+======
+======
+======
+
+
+III. Existence Mechanics
+
+Game Over Conditions
+- Captain + Seadogs = Acceptable
+- Captain killed = Game Over
+- Sink Meter reaching threshold = Game Over
+
+Currencies
+- $ (Doubloons) Gold, Paper, Bread, Dough, Chedda, Grip, Ends,
+... Loot, Booty, Coin
+- Ammo 1 - Grape Shot and Fire Bombs
+- Ammo 2 - Sail Shot
+
+Morale - NEEDS EXPANDING/CLARIFICATION
+- Food (Better Chef > Better Food > Better Morale)
+- Success
+- Mermaids and Sirens
+
+- Named toons never mutiny
+- Meter next to sea dog count
+- Threshold = chance of mutiny
+- Below ~%50 they might, chance goes up as u go down,
+... worse mutiny possible if lower #
+
+======
+======
+======
+
+
+IV. Progression Mechanics - Not complete at all, tech vs gameplay
+
+Map
+- Land procedurally placed first
+- Land is images we already have
+- Coordinates at the center of land with
+... space around being known
+- Procedurally generate remainging nodes
+- Curved pathes finishing touch
+[If you go to a zone multiple times, does it change? Just ocean
+... nodes right? Ports stay where they were? Land?
+... Can we have node CDs?]
+
+Reputation
+- We've done almost nothing for this
+
+Events - These will happen (Prob needs own doc because so large)
+> Sea monsters
+- Giant Squid, Kraken
+- Hydra
+
+> Crystal Cove
+- Procedurally placed
+- Multi-node node?
+- Lots of goodies
+- Perhaps a boss, perhaps a chance of boss
+
+> Mermaids & Sirens
+- This node has one or the other, unkwown until player accepts
+- If mermaids, simple morale increase (perhaps more)
+- If sirens, morale increase but loss of X Seadogs (NCs?)
+... Possible ship damage?
+
+> Quests (& Management thereof)
+- Bring homeboy 6 bags for sugar
+
+> Weather - ***Needs hammering out***
+- Bad weather increases chance of missing next jump
+- May lower evade or lower hit chance or increase weapon CD
+- May damage sails
+
+> Stories
+- Water cannon - Story, you use your water cannon to 
+... save a burning ship OR
+... you don't save them and salvage what you can
+... Could grant dudes/sea dogs
+... Could also be a trap .. maybe
+
+End game
+> Town Sacking Boss Fights
+- ~2 Military ships
+- Wall with guns and stuff
+
+> Proposed Ideas
+- Best-pirate battle
+- Maybe just 2 modes (High Score and End game)
+- Perhaps money amount at end
+
+======
+======
+======
+
+
+VI. Enemies
+
+Ship Packages
+- Aside from the standard attributes of a ship (i.e. Galley=Boarding)
+... Enemy ships will have a somewhat standard set of packages
+... Some parts can/will be randomized.
+... This will be more properly fleshed out when the game is at a
+... playable state.
+
+Nations/Peoples/Zones
+> Actual Nations
+- Strongest Navy
+- Strongest Mercantile, decent Navy,
+... maybe easier to trigger military
+- Weakest
+- Starter, poorish, turns blind eye to piracy mostly
+- Based on what you've done *Should have elaborated*
+... could be friend if you hurt their enemy
+... could be some kind of asshole bane thing
+... Events from other areas decide this one
+
+> Meta-esque stuff
+- Peoples from the "Carribean" will be better boarders
+- Peoples from the "Kingdoms" will have better guns
+
+- "Andilar" (Silver Ships (Probly not actually silver))
+- An area where there are boats that have snow.
+... Story, your ship having no snow on it makes you stand out.
+
+[Weaker regions may be more profitable. Less risky from boardings
+... An algorithm where when you enter the zone a factor is picked
+... Dictates overall booty value]
+
+======
+======
+======
+
+
+VII. HUD Elements
+
+- Sink Meter
+- Spot for each system you have (dont forget 'power'/'man power')
+- Head markers for Named Chars over systems
+- Food count
+- Enemy ship location & range (Arrow)
+- Ammo count (Need to decide on ammos (2?))
+- Deck selector (Could possibly combine with sink-o-meter (Probly))
+- Crew
+- Seadog count
+- Seadog caller
+- Morale
+- Evade
+
+- Ship's Log >> Opens to:
++
+- Map/Jump
+... Reputation
+... Cargo
+... Score
+- System Menu
+- Game Menu (Esc?)
+
+- Leave space for live streamer cameras
+
+
+======
+======
+======
+
+
+VIII. Other
+
+Achievements
+- "Messing Around In Boats" - Wreck X vessels (Something with many boats and perhaps being wreckless)
+- "Sloop John B" OR "Let Me Go Home" OR "Why Won't They Let Me Go Home?" - Something about a very long trip (Probably for Sloop but I want for all ships :(  )
+- "You Got Mega Junk In Yo Trunk" - Have lots of money at one time
+- "Born To Hula" - P.M. - Use your music AOE to pacify X ships
+- "Hit Me With Music" - P.M. - Prob better name for the above achievement
+- "You've Got A Monster In Your Parasol" - Defeat every type of monster in a single run
+
+General Visual Stuff
+- Sails need a movement animation
+- Sail holes and wear over time
+- Need to grid stuff
+- Smoke needs to be done intelligently
+
+======
+======
+======
+
+
+IX. Pacifist Mode
+"Hit Me With Music"
+
+> Ship
+- Only in "Sloop-of-Peace"
+- "Sloop-of-Peace" ship specs:
+... Incredibly fast - fastest/very fast
+... Finest rope - sails have increased durability
+... Strong hull
+- You expend morale for ship speed/evade ?
+- Advanced map nav so picking is more strategic (Crow's Nest?)
+- Groovy sail upgrades (maybe, appearance only atm)
+
+> Systems
+- Same as Normal except for no ballistic weapons or gangplank
+
+> Goal
+- Morale is your goal
+- The challenge is in measuring how much/how far you can go
+- Questing to find the tastiest grooves, finest herbs, and all
+... the mermaids and sirens throughout the land - ocean that is
+... Sirens for pirate people are bad because of their song
+... But these dudes, they only get the good part of that
+... And sirens have the tastiest of grooves
+
+> Characters
+- Regular named crewmen
+... Need doctors, cooks, carpenters
+- Band Members
+... Guitar, Ukelele, Steel Drum, Drum, Horn, Singer, Bass
+
+> Supplies
+- Different supplies at different places from Normal Mode
+- Supplies:
+... Herbs
+... Food & Flares
+... Tune outposts for needed morale - may have herbs
+... Tune outposts have long CD? Bounce around between visits?
+- No herbs means no smoke AOE and decreasing morale (more rapidly?)
+- You replenish these by sharing your tails of glory back at port
+... This amount is linear to your morale
+
+> Combat
+- Running is sometimes a smart tactic
+- Often, pirate ships won't attack you (not majority)
+- "A typical combative approach":
+... Wave flag?
+... Shoot flares (when enemy looks about to shoot)
+... Start the smoke (when close, limited amount or people pass out?)
+... Start the jams
+... Put out fires with bilge if you have
+... Assess the situation, stay and maybe die, win, or run
+- Morale for missed shots?
+- Galleys will fuck you up, avoid unless confident/crazy
+
+> "Weapons"
+- Flares - Blinds enemies preventing shooting or
+... increasing their miss chance
+- Smoke Screen/AOE - This will increase evade and pacify the
+... enemy ship overtime
+- Musical AOE - Short range, better/more musicians increase effect
+... Will make a sound
+... Possibly different parts for each instrument
+... ~3 Songs
+- Water Cannon
+
+> Questing
+- Quests to search nodes for stuff. Clues? "North of X"
+- Places may be guarded, can you slip past? (Survive combat)
+- Is such an event worth it at this time?
+
+> Events 
+- Example: "You come upon a pod of dolphins. 
+... That's totally cool. +10 Morale"
+- Example: "You're ship has picked up... a bassist."
+
+> Other Notes I Didn't Know Where To Put
+- Always start in "Carribean"
+... Harder because of boarders
+... Kingdom areas are therefore better in the way of utilizing ship
